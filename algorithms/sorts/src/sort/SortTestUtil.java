@@ -1,5 +1,7 @@
 package sort;
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * 测试排序算法的实用方法
  *
@@ -49,4 +51,17 @@ public class SortTestUtil {
         }
     }
 
+    /**
+     * 判断数组是否有序
+     * @param arr 数组
+     * @return boolean
+     */
+    public static boolean isSorted(Comparable[] arr) {
+        for (int i = 0; i < arr.length - 2; i++) {
+            if (arr[i].compareTo(arr[i + 1]) > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
