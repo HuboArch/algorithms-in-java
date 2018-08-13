@@ -38,4 +38,15 @@ public class SortTestUtil {
         return arr;
     }
 
+    /**
+     * 打印数组
+     * @param arr 数组
+     */
+    public static void printArray(Object[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            System.out.print(" ");
+        }
+    }
+
 }
