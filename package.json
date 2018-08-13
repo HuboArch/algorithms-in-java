@@ -1,0 +1,17 @@
+{
+  "name": "algorithms-in-java",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@primary:agribeau/algorithms-in-java.git",
+  "author": "agribeau <hkissbigapple@163.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
