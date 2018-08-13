@@ -1,6 +1,6 @@
 package sort;
 
-import com.sun.istack.internal.NotNull;
+import java.lang.reflect.Method;
 
 /**
  * 测试排序算法的实用方法
@@ -42,6 +42,7 @@ public class SortTestUtil {
 
     /**
      * 打印数组
+     *
      * @param arr 数组
      */
     public static void printArray(Object[] arr) {
@@ -53,6 +54,7 @@ public class SortTestUtil {
 
     /**
      * 判断数组是否有序
+     *
      * @param arr 数组
      * @return boolean
      */
@@ -63,5 +65,32 @@ public class SortTestUtil {
             }
         }
         return true;
+    }
+
+
+    /**
+     * 测试排序算法的性能
+     *
+     * @param sortClassName 排序算法的类名
+     * @param arr           数组
+     */
+    public static void testSortPerformance(String sortClassName, Comparable[] arr) {
+        try {
+            // 通过sortClassName获得排序函数的Class对象
+            Class sortClass = Class.forName(sortClassName);
+            // 通过排序函数的Class对象获得排序方法
+            Method sortMethod = sortClass.getMethod("sort", Comparable[].class);
+            // 排序参数只有一个，是可比较数组arr
+            Object[] params = new Object[]{arr};
+
+            long startTime = System.currentTimeMillis();
+            sortMethod.invoke(null, params);
+            long endTime = System.currentTimeMillis();
+
+            assert isSorted(arr);
+            System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + "ms");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
