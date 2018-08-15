@@ -102,6 +102,11 @@ public class LinkedListQueue<E> implements Queue<E> {
         }
     }
 
+    /**
+     * 测试链表队列
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         LinkedListQueue<Integer> queue = new LinkedListQueue<>();
 
