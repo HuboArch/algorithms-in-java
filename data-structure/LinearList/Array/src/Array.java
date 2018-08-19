@@ -73,4 +73,20 @@ public class Array<E> {
 
         data[idx] = e;
     }
+
+    /**
+     * 判断数组是否某个元素
+     *
+     * @param e 待查找的元素
+     * @return boolean
+     */
+    public boolean contains(E e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(e)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
