@@ -38,7 +38,7 @@ public class Array<E> {
             resize(2 * data.length);
         }
 
-        for (int i = size; i > idx; i++) {
+        for (int i = size; i > idx; i--) {
             data[i] = data[i - 1];
         }
 
@@ -175,7 +175,7 @@ public class Array<E> {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("Array: size = %d, capacity = %d\n", size, data.length);
+        builder.append(String.format("Array: size = %d, capacity = %d\n", size, data.length));
         builder.append("[");
         for (int i = 0; i < size; i++) {
             builder.append(data[i]);
