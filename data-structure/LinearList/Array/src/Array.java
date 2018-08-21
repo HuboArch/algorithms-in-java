@@ -170,4 +170,21 @@ public class Array<E> {
 
         data = newData;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("Array: size = %d, capacity = %d\n", size, data.length);
+        builder.append("[");
+        for (int i = 0; i < size; i++) {
+            builder.append(data[i]);
+            if (i != size - 1) {
+                builder.append(", ");
+            }
+        }
+        builder.append("]");
+
+        return builder.toString();
+    }
 }
