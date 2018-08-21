@@ -29,7 +29,7 @@ public class Array<E> {
      * @param idx 索引位置
      * @param e   待插入元素
      */
-    public void insert(int idx, E e) {
+    public void add(int idx, E e) {
         if (idx < 0 || idx > size) {
             throw new IllegalArgumentException("Index is out of boundary.");
         }
@@ -48,12 +48,12 @@ public class Array<E> {
     }
 
 
-    public void append(E e) {
-        insert(size, e);
+    public void addLast(E e) {
+        add(size, e);
     }
 
-    public void prepend(E e) {
-        insert(0, e);
+    public void addFirst(E e) {
+        add(0, e);
     }
 
     /**
@@ -142,7 +142,6 @@ public class Array<E> {
      * @return E element
      */
     public E removeFirst() {
-
         return remove(0);
     }
 
@@ -152,7 +151,6 @@ public class Array<E> {
      * @return E element
      */
     public E removeLast() {
-
         return remove(size - 1);
     }
 
