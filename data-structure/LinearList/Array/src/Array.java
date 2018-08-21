@@ -34,6 +34,10 @@ public class Array<E> {
             throw new IllegalArgumentException("Index is out of boundary.");
         }
 
+        if (size == data.length) {
+            resize(2 * data.length);
+        }
+
         for (int i = size; i > idx; i++) {
             data[i] = data[i - 1];
         }
@@ -118,12 +122,16 @@ public class Array<E> {
         }
 
         E tmpCell = data[idx];
-        for (int i = idx; i < size - 1; i++) {
-            data[i] = data[i + 1];
+        if (size - 1 - idx >= 0) {
+            System.arraycopy(data, idx + 1, data, idx, size - 1 - idx);
         }
         data[size - 1] = null; // to be a loitering object
 
         size--;
+
+        if (size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length / 2);
+        }
 
         return tmpCell;
     }
@@ -146,5 +154,20 @@ public class Array<E> {
     public E removeLast() {
 
         return remove(size - 1);
+    }
+
+    /**
+     * 数组扩容
+     *
+     * @param capacity 容量
+     */
+    private void resize(int capacity) {
+        E[] newData = (E[]) new Object[capacity];
+
+        if (size >= 0) {
+            System.arraycopy(data, 0, newData, 0, size);
+        }
+
+        data = newData;
     }
 }
