@@ -89,4 +89,20 @@ public class Array<E> {
 
         return false;
     }
+
+    /**
+     * 查找元素e所在的索引
+     *
+     * @param e 元素
+     * @return int
+     */
+    public int find(E e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(e)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
