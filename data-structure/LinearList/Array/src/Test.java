@@ -6,14 +6,14 @@ public class Test {
         Array<Integer> arr = new Array<>();
 
         for (int i = 0; i < 10; i++) {
-            arr.append(i);
+            arr.addLast(i);
         }
         System.out.println(arr);
 
-        arr.insert(1, 100);
+        arr.add(1, 100);
         System.out.println(arr);
 
-        arr.prepend(-1);
+        arr.addFirst(-1);
         System.out.println(arr);
 
         arr.remove(2);
