@@ -105,4 +105,46 @@ public class Array<E> {
 
         return -1;
     }
+
+    /**
+     * 移除指定索引位置的元素，并返回之
+     *
+     * @param idx 索引
+     * @return E element
+     */
+    public E remove(int idx) {
+        if (idx < 0 || idx >= size) {
+            throw new IllegalArgumentException("Index parameter is out of boundary.");
+        }
+
+        E tmpCell = data[idx];
+        for (int i = idx; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[size - 1] = null; // to be a loitering object
+
+        size--;
+
+        return tmpCell;
+    }
+
+    /**
+     * 移除首元素，并返回之
+     *
+     * @return E element
+     */
+    public E removeFirst() {
+
+        return remove(0);
+    }
+
+    /**
+     * 移除尾元素，并返回之
+     *
+     * @return E element
+     */
+    public E removeLast() {
+
+        return remove(size - 1);
+    }
 }
