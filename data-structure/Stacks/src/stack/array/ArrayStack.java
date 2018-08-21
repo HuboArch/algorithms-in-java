@@ -55,6 +55,8 @@ public class ArrayStack<E> implements Stack<E> {
             }
         }
 
+        builder.append("] TOP");
+
         return builder.toString();
     }
 }
