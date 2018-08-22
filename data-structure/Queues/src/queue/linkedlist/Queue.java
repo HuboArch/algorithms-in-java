@@ -1,4 +1,4 @@
-package queue;
+package queue.linkedlist;
 
 public interface Queue<E> {
     void enqueue(E e);

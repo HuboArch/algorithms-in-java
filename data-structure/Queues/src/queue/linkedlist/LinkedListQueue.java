@@ -1,4 +1,4 @@
-package queue;
+package queue.linkedlist;
 
 public class LinkedListQueue<E> implements Queue<E> {
 
