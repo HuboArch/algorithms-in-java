@@ -104,6 +104,24 @@ public class CircularQueue<E> implements Queue<E> {
         return data[front];
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("Queue: size=%d, capacity=%d\n", size, getCapacity()));
+        builder.append("front [");
+
+        for (int i = front; i < front + size; i++) {
+            builder.append(data[i % data.length]);
+            if (i != size - 1) {
+                builder.append(", ");
+            }
+        }
+
+        builder.append("] rear");
+
+        return builder.toString();
+    }
+
     /**
      * 容量动态调整
      */
