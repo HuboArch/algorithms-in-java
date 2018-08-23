@@ -17,6 +17,10 @@ public class CircularQueue<E> implements Queue<E> {
         this.capacity = capacity;
     }
 
+    public CircularQueue() {
+        this(10);
+    }
+
     @Override
     public int getSize() {
         return size;
