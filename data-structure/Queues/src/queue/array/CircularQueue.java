@@ -90,9 +90,18 @@ public class CircularQueue<E> implements Queue<E> {
         return tmpCell;
     }
 
+    /**
+     * 查看队首元素
+     *
+     * @return 队首元素
+     */
     @Override
     public E peekFront() {
-        return null;
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Queue is empty.");
+        }
+
+        return data[front];
     }
 
     /**
