@@ -19,7 +19,11 @@ public class CircularQueue<E> implements Queue<E> {
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 
     @Override
