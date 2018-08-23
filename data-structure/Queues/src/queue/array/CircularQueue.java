@@ -139,7 +139,7 @@ public class CircularQueue<E> implements Queue<E> {
 
         this.data = newData;
         this.front = 0;
-        this.rear = -1;
+        this.rear = size - 1;
         this.capacity = capacity;
     }
 }
