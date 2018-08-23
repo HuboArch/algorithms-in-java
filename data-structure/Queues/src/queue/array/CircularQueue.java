@@ -26,9 +26,23 @@ public class CircularQueue<E> implements Queue<E> {
         return capacity;
     }
 
+    /**
+     * 判断队列是否为空
+     *
+     * @return 若为空返回 true
+     */
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
+    }
+
+    /**
+     * 判断队列是否已满
+     *
+     * @return 若已满返回 true
+     */
+    private boolean isFull() {
+        return size == capacity;
     }
 
     @Override
