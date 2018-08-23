@@ -64,9 +64,30 @@ public class CircularQueue<E> implements Queue<E> {
         size++;
     }
 
+    /**
+     * 从队首出队
+     *
+     * @return 返回出队的元素
+     */
     @Override
     public E dequeue() {
-        return null;
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Cannot dequeue from an empty queue.");
+        }
+
+        E tmpCell = data[front];
+        data[front] = null;
+
+        front++;
+        front %= data.length;
+        size--;
+
+        /* 队列大小占容量的 1/4，容量减半，这样可防止出队方法的复杂度震荡 */
+        if (size == getCapacity() / 4) {
+            resize(getCapacity() / 2);
+        }
+
+        return tmpCell;
     }
 
     @Override
