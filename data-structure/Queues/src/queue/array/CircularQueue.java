@@ -59,4 +59,21 @@ public class CircularQueue<E> implements Queue<E> {
     public E peekFront() {
         return null;
     }
+
+    /**
+     * 容量动态调整
+     */
+    @SuppressWarnings("unchecked")
+    private void resize(int capacity) {
+        E[] newData = (E[]) new Object[capacity];
+
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[(i + front) % data.length];
+        }
+
+        this.data = newData;
+        this.front = 0;
+        this.rear = -1;
+        this.capacity = capacity;
+    }
 }
