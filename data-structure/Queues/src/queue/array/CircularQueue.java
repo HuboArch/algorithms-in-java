@@ -12,7 +12,7 @@ public class CircularQueue<E> implements Queue<E> {
     public CircularQueue(int capacity) {
         this.data = (E[]) new Object[capacity];
         this.front = 0;
-        this.rear = 0;
+        this.rear = -1;
         this.size = 0;
         this.capacity = capacity;
     }
