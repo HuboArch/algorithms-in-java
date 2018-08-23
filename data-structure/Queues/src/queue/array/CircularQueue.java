@@ -45,9 +45,23 @@ public class CircularQueue<E> implements Queue<E> {
         return size == capacity;
     }
 
+    /**
+     * 在尾部入队
+     *
+     * @param e 入队元素
+     */
     @Override
     public void enqueue(E e) {
+        /* 队列已满，扩容 */
+        if (isFull()) {
+            resize(2 * getCapacity());
+        }
 
+        rear++;
+        rear %= data.length;
+        data[rear] = e;
+
+        size++;
     }
 
     @Override
