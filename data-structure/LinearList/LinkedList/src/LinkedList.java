@@ -35,4 +35,13 @@ public class LinkedList<E> {
         this.tail = null;
         this.size = 0;
     }
+
+    /**
+     * 查询链表中元素的个数
+     *
+     * @return 链表大小
+     */
+    public int getSize() {
+        return size;
+    }
 }
