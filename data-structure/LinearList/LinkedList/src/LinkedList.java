@@ -82,4 +82,22 @@ public class LinkedList<E> {
         size++;
     }
 
+    /**
+     * 在链表首部添加元素
+     *
+     * @param e 待添加元素
+     */
+    public void addFirst(E e) {
+        add(0, e);
+    }
+
+    /**
+     * 在链表尾部添加元素
+     *
+     * @param e 待添加元素
+     */
+    public void addLast(E e) {
+        add(size, e);
+    }
+
 }
