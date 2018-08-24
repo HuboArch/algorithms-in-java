@@ -44,4 +44,13 @@ public class LinkedList<E> {
     public int getSize() {
         return size;
     }
+
+    /**
+     * 判断链表是否为空
+     *
+     * @return 为空返回 true
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
 }
