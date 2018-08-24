@@ -16,9 +16,23 @@ public class LinkedList<E> {
             this(e, null);
         }
 
+        public Node() {
+            this(null, null);
+        }
+
         @Override
         public String toString() {
             return e.toString();
         }
+    }
+
+    private Node dummyHead;
+    private Node tail;
+    private int  size;
+
+    public LinkedList() {
+        this.dummyHead = new Node();
+        this.tail = null;
+        this.size = 0;
     }
 }
