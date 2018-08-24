@@ -53,4 +53,33 @@ public class LinkedList<E> {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    /**
+     * 在链表的指定索引位置添加元素
+     *
+     * @param idx 索引位置
+     * @param e   待添加元素
+     */
+    public void add(int idx, E e) {
+        if (idx < 0 || idx > size) {
+            throw new IllegalArgumentException("Add failed. Illegal argument idx.");
+        }
+
+        if (idx == size) {
+            if (idx == 0) {
+                dummyHead.next = tail = new Node(e);
+            } else {
+                tail.next = new Node(e);
+            }
+        } else {
+            Node prev = dummyHead;
+            for (int i = 0; i < idx; i++) {
+                prev = prev.next;
+            }
+            prev.next = new Node(e, prev.next);
+        }
+
+        size++;
+    }
+
 }
