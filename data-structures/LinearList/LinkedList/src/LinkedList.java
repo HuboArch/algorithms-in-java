@@ -100,4 +100,30 @@ public class LinkedList<E> {
         add(size, e);
     }
 
+    /**
+     * 从链表中删除指定索引位置的元素
+     *
+     * @param idx 索引位置
+     * @return 被删除的元素
+     */
+    public E remove(int idx) {
+        if (idx < 0 || idx >= size) {
+            throw new IllegalArgumentException("Remove failed. Illegal argument idx.");
+        }
+
+        Node prev = dummyHead;
+        for (int i = 0; i < idx; i++) {
+            prev = prev.next;
+        }
+        Node tmpCell = prev.next;
+        prev.next = tmpCell.next;
+
+        if (tmpCell.next == null) {
+            tail = prev;
+        }
+
+        size--;
+
+        return tmpCell.e;
+    }
 }
