@@ -68,4 +68,21 @@ public class LinkedList<E> {
     public int getSize() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        Node cur = dummyNode.next;
+        while (cur != null) {
+            builder.append(cur.e);
+            if (cur.next != null) {
+                builder.append("->");
+            }
+
+            cur = cur.next;
+        }
+
+        return builder.toString();
+    }
 }
