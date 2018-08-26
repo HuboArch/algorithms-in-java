@@ -206,11 +206,12 @@ public class LinkedList<E> {
         StringBuilder builder = new StringBuilder();
 
         Node cur = dummyHead.next;
-        while (cur.next != null) {
+        while (cur != null) {
             builder.append(cur.e).append("->");
 
             cur = cur.next;
         }
+        builder.append("null");
 
         return builder.toString();
     }
