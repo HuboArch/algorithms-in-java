@@ -1,28 +1,40 @@
 package stack.linkedlist;
 
 public class LinkedListStack<E> implements Stack<E> {
+    private LinkedList<E> list;
+
+    public LinkedListStack() {
+        list = new LinkedList<>();
+    }
+
     @Override
     public void push(E e) {
-
+        list.addFirst(e);
     }
 
     @Override
     public E pop() {
-        return null;
+        return list.removeFirst();
     }
 
     @Override
     public E peek() {
-        return null;
+        return list.getFirst();
     }
 
     @Override
     public int getSize() {
-        return 0;
+        return list.getSize();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return list.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+
+        return "Stack: top " + list;
     }
 }
