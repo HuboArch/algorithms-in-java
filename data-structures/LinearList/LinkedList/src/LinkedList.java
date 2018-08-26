@@ -200,4 +200,18 @@ public class LinkedList<E> {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        Node cur = dummyHead.next;
+        while (cur.next != null) {
+            builder.append(cur.e).append("->");
+
+            cur = cur.next;
+        }
+
+        return super.toString();
+    }
 }
