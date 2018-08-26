@@ -144,4 +144,41 @@ public class LinkedList<E> {
     public E removeLast() {
         return remove(size - 1);
     }
+
+    /**
+     * 获取指定索引位置的元素( 链表中其实并没有索引的概念，这里使用索引位置是为了方便理解 )
+     *
+     * @param idx 位置
+     * @return 指定位置的元素
+     */
+    public E get(int idx) {
+        if (idx < 0 || idx >= size) {
+            throw new IllegalArgumentException("Get failed. Illegal argument idx");
+        }
+
+        Node cur = dummyHead.next;
+        for (int i = 0; i < idx; i++) {
+            cur = cur.next;
+        }
+
+        return cur.e;
+    }
+
+    /**
+     * 获取链表首元素
+     *
+     * @return 链表首元素
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * 获取链表尾元素
+     *
+     * @return 链表尾元素
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
 }
