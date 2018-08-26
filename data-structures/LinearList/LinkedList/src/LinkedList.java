@@ -212,6 +212,6 @@ public class LinkedList<E> {
             cur = cur.next;
         }
 
-        return super.toString();
+        return builder.toString();
     }
 }
