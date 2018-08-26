@@ -39,6 +39,8 @@ public class LinkedList<E> {
 
     public void addFirst(E e) {
         dummyNode.next = new Node(e, dummyNode.next);
+
+        size++;
     }
 
     public E removeFirst() {
@@ -49,6 +51,8 @@ public class LinkedList<E> {
         Node head = dummyNode.next;
         dummyNode.next = head.next;
         head.next = null; // avoid loitering object
+
+        size--;
 
         return head.e;
     }
