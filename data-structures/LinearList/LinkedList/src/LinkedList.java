@@ -126,4 +126,22 @@ public class LinkedList<E> {
 
         return tmpCell.e;
     }
+
+    /**
+     * 从链表首部移除元素
+     *
+     * @return 被移除的元素
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * 从链表尾部移除元素
+     *
+     * @return 被移除的元素
+     */
+    public E removeLast() {
+        return remove(size - 1);
+    }
 }
