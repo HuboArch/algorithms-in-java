@@ -181,4 +181,23 @@ public class LinkedList<E> {
     public E getLast() {
         return get(size - 1);
     }
+
+    /**
+     * 判断链表中是否含有指定的元素
+     *
+     * @param e 指定的元素
+     * @return 含有返回 true
+     */
+    public boolean contains(E e) {
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            if (cur.e.equals(e)) {
+                return true;
+            }
+
+            cur = cur.next;
+        }
+
+        return false;
+    }
 }
