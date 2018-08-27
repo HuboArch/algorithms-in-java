@@ -1,6 +1,7 @@
 package queue.linkedlist;
 
 public interface Queue<E> {
+
     void enqueue(E e);
 
     E dequeue();
@@ -9,5 +10,5 @@ public interface Queue<E> {
 
     boolean isEmpty();
 
-    E getFront();
+    E peekHead();
 }
