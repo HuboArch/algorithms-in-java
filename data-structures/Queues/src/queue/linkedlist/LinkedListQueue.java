@@ -35,6 +35,6 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     @Override
     public String toString() {
-        return "Queue: \n" + list;
+        return "Queue: " + list;
     }
 }
