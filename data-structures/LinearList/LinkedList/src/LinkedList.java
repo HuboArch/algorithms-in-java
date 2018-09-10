@@ -153,7 +153,7 @@ public class LinkedList<E> {
      */
     public E get(int idx) {
         if (idx < 0 || idx >= size) {
-            throw new IllegalArgumentException("Get failed. Illegal argument idx");
+            throw new IllegalArgumentException("Get failed. Illegal argument idx.");
         }
 
         Node cur = dummyHead.next;
