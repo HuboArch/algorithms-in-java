@@ -50,4 +50,28 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
         return node;
     }
+
+    /**
+     * 判断是否包含某个元素
+     *
+     * @param e 待查找的元素
+     * @return 存在返回 true
+     */
+    public boolean contains(E e) {
+        return contains(root, e);
+    }
+
+    private boolean contains(Node node, E e) {
+        if (node == null) {
+            return false;
+        }
+
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        } else if (e.compareTo(node.e) < 0) {
+            return contains(node.left, e);
+        } else {
+            return contains(node.right, e);
+        }
+    }
 }
