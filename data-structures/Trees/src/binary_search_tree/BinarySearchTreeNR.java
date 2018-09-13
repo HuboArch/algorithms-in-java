@@ -28,4 +28,11 @@ public class BinarySearchTree_Normal<E extends Comparable<E>> {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    /**
+     * 前序遍历
+     */
+    public void preOrder() {
+
+    }
 }
