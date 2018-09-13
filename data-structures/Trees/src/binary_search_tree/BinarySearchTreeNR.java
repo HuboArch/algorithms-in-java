@@ -1,6 +1,10 @@
 package binary_search_tree;
 
-public class BinarySearchTree_Normal<E extends Comparable<E>> {
+/**
+ * NR -> Non-Recursive
+ * @param <E>
+ */
+public class BinarySearchTreeNR<E extends Comparable<E>> {
 
     private class Node {
         E    e;
@@ -16,7 +20,7 @@ public class BinarySearchTree_Normal<E extends Comparable<E>> {
     private Node root;
     private int  size;
 
-    public BinarySearchTree_Normal() {
+    public BinarySearchTreeNR() {
         root = null;
         size = 0;
     }
