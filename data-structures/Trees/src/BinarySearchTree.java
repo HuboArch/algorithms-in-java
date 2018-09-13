@@ -74,4 +74,21 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return contains(node.right, e);
         }
     }
+
+    /**
+     * 前序遍历
+     */
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
 }
