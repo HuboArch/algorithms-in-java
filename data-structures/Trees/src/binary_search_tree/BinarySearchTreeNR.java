@@ -1,5 +1,7 @@
 package binary_search_tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -52,6 +54,26 @@ public class BinarySearchTreeNR<E extends Comparable<E>> {
             }
             if (cur.left != null) {
                 nodeStack.push(cur.left);
+            }
+        }
+    }
+
+    /**
+     * 层序遍历
+     */
+    public void levelOrder() {
+        Queue<Node> nodeQueue = new LinkedList<>();
+        nodeQueue.add(root);
+
+        while (!nodeQueue.isEmpty()) {
+            Node cur = nodeQueue.remove();
+            System.out.println(cur.e);
+
+            if (cur.left != null) {
+                nodeQueue.add(cur.left);
+            }
+            if (cur.right != null) {
+                nodeQueue.add(cur.right);
             }
         }
     }
