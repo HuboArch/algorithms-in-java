@@ -4,7 +4,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         E    e;
         Node left, right;
 
-        public Node(E e) {
+        Node(E e) {
             this.e = e;
             left = null;
             right = null;
@@ -90,5 +90,19 @@ public class BinarySearchTree<E extends Comparable<E>> {
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
     }
 }
