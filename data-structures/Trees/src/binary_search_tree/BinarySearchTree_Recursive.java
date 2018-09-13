@@ -110,4 +110,21 @@ public class BinarySearchTree_Recursive<E extends Comparable<E>> {
         System.out.println(node.e);
         inOrder(node.right);
     }
+
+    /**
+     * 后序遍历
+     */
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.e);
+    }
 }
