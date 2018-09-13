@@ -1,4 +1,6 @@
-public class BinarySearchTree<E extends Comparable<E>> {
+package binary_search_tree;
+
+public class BinarySearchTree_Recursive<E extends Comparable<E>> {
 
     private class Node {
         E    e;
@@ -14,7 +16,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     private Node root;
     private int  size;
 
-    public BinarySearchTree() {
+    public BinarySearchTree_Recursive() {
         root = null;
         size = 0;
     }
@@ -92,6 +94,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
         preOrder(node.right);
     }
 
+    /**
+     * 中序遍历
+     */
     public void inOrder() {
         inOrder(root);
     }
