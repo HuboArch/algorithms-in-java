@@ -1,7 +1,10 @@
 package binary_search_tree;
 
+import java.util.Stack;
+
 /**
  * NR -> Non-Recursive
+ *
  * @param <E>
  */
 public class BinarySearchTreeNR<E extends Comparable<E>> {
@@ -37,6 +40,19 @@ public class BinarySearchTreeNR<E extends Comparable<E>> {
      * 前序遍历
      */
     public void preOrder() {
+        Stack<Node> nodeStack = new Stack<>();
+        nodeStack.push(root);
 
+        while (!nodeStack.isEmpty()) {
+            Node cur = nodeStack.pop();
+            System.out.println(cur.e);
+
+            if (cur.right != null) {
+                nodeStack.push(cur.right);
+            }
+            if (cur.left != null) {
+                nodeStack.push(cur.left);
+            }
+        }
     }
 }
