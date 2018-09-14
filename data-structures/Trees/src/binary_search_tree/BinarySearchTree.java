@@ -212,4 +212,32 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
+    /**
+     * 从二分搜索树中移除最大值所在的结点
+     *
+     * @return 最大值
+     */
+    public E removeMax() {
+        root = removeMax(root);
+
+        return maximum();
+    }
+
+    /**
+     * 移除以node为根的二分搜索树的最大值所在的结点
+     *
+     * @param node 根节点
+     * @return 移除最大结点后的根节点
+     */
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
+            return leftNode;
+        }
+
+        node.right = removeMax(node.right);
+        return node;
+    }
+
 }
