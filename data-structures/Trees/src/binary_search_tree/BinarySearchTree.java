@@ -183,4 +183,33 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
         return maximum(node.right);
     }
+
+    /**
+     * 从二分搜索树中移除最小值所在的结点
+     *
+     * @return 最小值
+     */
+    public E removeMin() {
+        root = removeMin(root);
+
+        return minimum();
+    }
+
+    /**
+     * 移除以node为根的二分搜索树的最小值所在的结点
+     *
+     * @param node 根节点
+     * @return 移除最小结点后的根节点
+     */
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            return rightNode;
+        }
+
+        node.left = removeMin(node.left);
+        return node;
+    }
+
 }
