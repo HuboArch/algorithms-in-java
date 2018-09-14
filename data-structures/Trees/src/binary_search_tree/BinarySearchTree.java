@@ -127,4 +127,28 @@ public class BinarySearchTree<E extends Comparable<E>> {
         postOrder(node.right);
         System.out.println(node.e);
     }
+
+    /**
+     * 获取二分搜索树中的最小元素
+     *
+     * @return 最小元素
+     */
+    public E minimum() {
+
+
+        return null;
+    }
+
+    /**
+     * 获取以node为根的二分搜索树中的最小元素所在的结点
+     *
+     * @param node 根节点
+     */
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+
+        return minimum(node.left);
+    }
 }
