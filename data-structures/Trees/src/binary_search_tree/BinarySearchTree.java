@@ -155,4 +155,32 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
         return minimum(node.left);
     }
+
+    /**
+     * 获取二分搜索树中的最大元素
+     *
+     * @return 最大元素
+     */
+    public E maximum() {
+        if (isEmpty()) {
+            throw new IllegalArgumentException("The binary search tree is empty.");
+        }
+
+        Node minNode = maximum(root);
+
+        return minNode.e;
+    }
+
+    /**
+     * 获取以node为根的二分搜索树的最小值所在的结点
+     *
+     * @param node 根节点
+     */
+    private Node maximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+
+        return maximum(node.right);
+    }
 }
