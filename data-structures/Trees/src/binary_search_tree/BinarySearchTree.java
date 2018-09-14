@@ -134,9 +134,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
      * @return 最小元素
      */
     public E minimum() {
+        if (isEmpty()) {
+            throw new IllegalArgumentException("The binary search tree is empty.");
+        }
 
+        Node minNode = minimum(root);
 
-        return null;
+        return minNode.e;
     }
 
     /**
