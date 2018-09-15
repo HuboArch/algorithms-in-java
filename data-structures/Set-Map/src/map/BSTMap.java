@@ -101,6 +101,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public void set(K key, V value) {
+        Node node = getNode(root, key);
 
+        if (node == null) {
+            throw new IllegalArgumentException(key + "does not exists.");
+        }
+
+        node.value = value;
     }
 }
