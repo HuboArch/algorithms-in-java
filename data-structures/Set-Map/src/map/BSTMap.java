@@ -35,7 +35,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public boolean contains(K key) {
-        return false;
+        return getNode(root, key) != null;
     }
 
     @Override
@@ -65,6 +65,25 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
             node.value = value; // 如果key值已经存在，则覆盖之前的value值
         }
         return node;
+    }
+
+    /**
+     * @param node 根节点
+     * @param key  待搜索键值
+     * @return 返回在以node为根节点的二分搜索树中，key值所在的节点
+     */
+    private Node getNode(Node node, K key) {
+        if (node == null) {
+            return null;
+        }
+
+        if (key.compareTo(node.key) < 0) {
+            return getNode(node.left, key);
+        } else if (key.compareTo(node.key) > 0) {
+            return getNode(node.right, key);
+        } else { // key.compareTo(node.key) == 0
+            return node;
+        }
     }
 
     @Override
