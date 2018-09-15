@@ -40,7 +40,31 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public void add(K key, V value) {
+        root = add(root, key, value);
+    }
 
+    /**
+     * 向以node为根的二分搜索树中添加元素(key, value)
+     *
+     * @param node  二分搜索树的根节点
+     * @param key   待插入的key
+     * @param value 待插入的value
+     * @return 返回插入新节点后的二分搜索树的根
+     */
+    private Node add(Node node, K key, V value) {
+        if (node == null) {
+            size++;
+            return new Node(key, value);
+        }
+
+        if (key.compareTo(node.key) < 0) {
+            node.left = add(node.left, key, value);
+        } else if (key.compareTo(node.key) > 0) {
+            node.right = add(node.right, key, value);
+        } else {
+            node.value = value; // 如果key值已经存在，则覆盖之前的value值
+        }
+        return node;
     }
 
     @Override
