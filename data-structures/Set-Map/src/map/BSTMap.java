@@ -68,6 +68,8 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     }
 
     /**
+     * 获取包含指定键的node节点
+     *
      * @param node 根节点
      * @param key  待搜索键值
      * @return 返回在以node为根节点的二分搜索树中，key值所在的节点
@@ -93,7 +95,8 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public V get(K key) {
-        return null;
+        Node node = getNode(root, key);
+        return node == null ? null : node.value;
     }
 
     @Override
