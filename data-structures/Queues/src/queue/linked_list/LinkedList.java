@@ -1,4 +1,4 @@
-package queue.linkedlist;
+package queue.linked_list;
 
 /**
  * 为实现基于链表的队列而准备的链表
