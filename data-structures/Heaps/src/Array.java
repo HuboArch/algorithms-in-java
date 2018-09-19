@@ -1,5 +1,3 @@
-package queue.priority_queue;
-
 public class Array<E> {
     private E[] data;
     private int size;
