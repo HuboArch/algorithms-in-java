@@ -1,3 +1,7 @@
+package max_heap;
+
+import max_heap.Array;
+
 public class MaxHeap<E extends Comparable<E>> {
 
     private Array<E> data;
