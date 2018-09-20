@@ -28,7 +28,7 @@ public class MaxHeap<E extends Comparable<E>> {
      * @param idx 待查询的节点的在数组中的索引
      * @return 父亲节点在数组中的索引
      */
-    private int parent(int idx) {
+    private int getParentIdx(int idx) {
         if (idx < 0) {
             throw new IllegalArgumentException("Index 0 does not have parent node.");
         }
@@ -42,7 +42,7 @@ public class MaxHeap<E extends Comparable<E>> {
      * @param idx 待查询节点在数组中的索引
      * @return 左子节点的索引
      */
-    private int leftChild(int idx) {
+    private int getLeftChildIdx(int idx) {
         return 2 * idx + 1;
     }
 
@@ -52,7 +52,7 @@ public class MaxHeap<E extends Comparable<E>> {
      * @param idx 待查询节点在数组中的索引
      * @return 右子节点的索引
      */
-    private int rightChild(int idx) {
+    private int getRightChildIdx(int idx) {
         return 2 * idx + 2;
     }
 
