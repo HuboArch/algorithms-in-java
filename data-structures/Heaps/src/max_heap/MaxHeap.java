@@ -56,7 +56,12 @@ public class MaxHeap<E extends Comparable<E>> {
         return 2 * idx + 2;
     }
 
-
+    /**
+     * 向二叉堆中添加元素
+     *
+     * @param e 待添加的元素
+     * @return 添加成功返回 true
+     */
     public boolean add(E e) {
         if (e == null) {
             throw new NullPointerException("Can not insert null into the heap.");
