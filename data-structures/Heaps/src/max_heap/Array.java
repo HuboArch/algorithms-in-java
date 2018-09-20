@@ -4,6 +4,7 @@ public class Array<E> {
     private E[] data;
     private int size;
 
+    @SuppressWarnings("unchecked")
     public Array(int capacity) {
         this.data = (E[]) new Object[capacity];
         this.size = 0;
@@ -161,6 +162,7 @@ public class Array<E> {
      *
      * @param capacity 容量
      */
+    @SuppressWarnings("unchecked")
     private void resize(int capacity) {
         E[] newData = (E[]) new Object[capacity];
 
