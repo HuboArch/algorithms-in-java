@@ -70,7 +70,7 @@ public class MaxHeap<E extends Comparable<E>> {
         if (i == 0) {
             data.set(0, e);
         } else {
-            siftUp(i - 1, e);
+            siftUp(i, e);
         }
         return true;
     }
