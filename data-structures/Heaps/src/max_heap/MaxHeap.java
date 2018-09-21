@@ -87,4 +87,17 @@ public class MaxHeap<E extends Comparable<E>> {
         }
         data.set(k, x);
     }
+
+    /**
+     * 获取最大的元素
+     *
+     * @return 最大的元素
+     */
+    public E findMax() {
+        if (data.getSize() == 0) {
+            throw new IllegalArgumentException("Can not find the maximum element from an empty heap.");
+        }
+
+        return data.get(0);
+    }
 }
