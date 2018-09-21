@@ -100,4 +100,35 @@ public class MaxHeap<E extends Comparable<E>> {
 
         return data.get(0);
     }
+
+    /**
+     * 取出堆中的最大元素
+     *
+     * @return 最大的元素
+     */
+    public E extractMax() {
+        E ret = findMax();
+        E e   = data.removeLast();
+        siftDown(0, e);
+        return ret;
+    }
+
+    private void siftDown(int k, E x) {
+        int size = size();
+        int half = size >>> 1;
+        while (k < half) {
+            int child = getLeftChildIdx(k);
+            E   c     = data.get(child);
+            int right = child + 1;
+            if (right < size && c.compareTo(data.get(right)) < 0) {
+                c = data.get(child = right);
+            }
+            if (x.compareTo(c) >= 0) {
+                break;
+            }
+            data.set(k, c);
+            k = child;
+        }
+        data.set(k, x);
+    }
 }
