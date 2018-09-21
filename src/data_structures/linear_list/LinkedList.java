@@ -1,3 +1,5 @@
+package data_structures.linear_list;
+
 public class LinkedList<E> {
 
     /**

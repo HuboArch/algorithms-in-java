@@ -1,3 +1,5 @@
+package data_structures.linear_list;
+
 public class Array<E> {
     private E[] data;
     private int size;
@@ -175,7 +177,7 @@ public class Array<E> {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append(String.format("max_heap.Array: size = %d, capacity = %d\n", size, data.length));
+        builder.append(String.format("max_heap.data_structures.linear_list.Array: size = %d, capacity = %d\n", size, data.length));
         builder.append("[");
         for (int i = 0; i < size; i++) {
             builder.append(data[i]);

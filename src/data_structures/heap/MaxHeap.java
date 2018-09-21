@@ -1,6 +1,6 @@
-package max_heap;
+package data_structures.heap;
 
-import max_heap.Array;
+import data_structures.linear_list.Array;
 
 public class MaxHeap<E extends Comparable<E>> {
 

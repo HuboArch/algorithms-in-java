@@ -1,4 +1,4 @@
-package sort;
+package algorithms.sorting;
 
 import java.lang.reflect.Method;
 
@@ -7,10 +7,10 @@ import java.lang.reflect.Method;
  *
  * @author dean
  */
-public class SortTestUtil {
+public class TestHelper {
 
     /* 不允许产生实例对象 */
-    private SortTestUtil() {
+    private TestHelper() {
     }
 
     /**
