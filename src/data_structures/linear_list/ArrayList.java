@@ -127,15 +127,6 @@ public class ArrayList<E> implements List<E> {
         size++;
     }
 
-
-    public void addLast(E e) {
-        add(size, e);
-    }
-
-    public void addFirst(E e) {
-        add(0, e);
-    }
-
     /**
      * 移除指定索引位置的元素，并返回之
      *
@@ -160,24 +151,6 @@ public class ArrayList<E> implements List<E> {
         }
 
         return tmpCell;
-    }
-
-    /**
-     * 移除首元素，并返回之
-     *
-     * @return E element
-     */
-    public E removeFirst() {
-        return remove(0);
-    }
-
-    /**
-     * 移除尾元素，并返回之
-     *
-     * @return E element
-     */
-    public E removeLast() {
-        return remove(size - 1);
     }
 
     /**
