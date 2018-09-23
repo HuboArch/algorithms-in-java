@@ -1,17 +1,23 @@
 package data_structures.linear_list;
 
 public class ArrayList<E> {
-    private E[] data;
+    private static final int DEFAULT_CAPACITY = 10;
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+    private Object[] elementData;
     private int size;
 
-    @SuppressWarnings("unchecked")
-    public ArrayList(int capacity) {
-        this.data = (E[]) new Object[capacity];
-        this.size = 0;
+    public ArrayList(int initialCapacity) {
+        if (initialCapacity > 0) {
+            this.elementData = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
+            this.elementData = EMPTY_ELEMENTDATA;
+        } else {
+            throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
+        }
     }
 
     public ArrayList() {
-        this(10);
+        this(DEFAULT_CAPACITY);
     }
 
     public int getCapacity() {
