@@ -73,6 +73,21 @@ public class ArrayList<E> implements List<E> {
         return elementData(index);
     }
 
+    /**
+     * 使用指定元素替换指定索引位置上的元素
+     *
+     * @param index   待替换元素所在的索引位置
+     * @param element 待存储的元素
+     * @return 索引位置上之前所存储的元素
+     */
+    public E set(int index, E element) {
+        rangeCheck(index);
+
+        E oldValue = elementData(index);
+        elementData[index] = element;
+        return oldValue;
+    }
+
     @SuppressWarnings("unchecked")
     private E elementData(int index) {
         return (E) elementData[index];
