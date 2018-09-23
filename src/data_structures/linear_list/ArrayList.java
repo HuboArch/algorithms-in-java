@@ -121,27 +121,29 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
-     * 在指定的索引位置插入元素
+     * 在指定的索引位置插入元素，后面的元素向右移动一个索引位置
      *
-     * @param idx 索引位置
-     * @param e   待插入元素
+     * @param index   待插入的索引位置
+     * @param element 待插入的元素
      */
-    public void add(int idx, E e) {
-        if (idx < 0 || idx > size) {
-            throw new IllegalArgumentException("Index is out of boundary.");
+    public void add(int index, E element) {
+        rangeCheckForAdd(index);
+
+        if (size == elementData.length) {
+            resize(2 * elementData.length);
         }
 
-        if (size == data.length) {
-            resize(2 * data.length);
+        for (int i = size; i > index; i--) {
+            elementData[i] = elementData[i - 1];
         }
-
-        for (int i = size; i > idx; i--) {
-            data[i] = data[i - 1];
-        }
-
-        data[idx] = e;
-
+        elementData[index] = element;
         size++;
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
     }
 
     /**
