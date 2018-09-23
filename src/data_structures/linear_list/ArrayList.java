@@ -20,10 +20,6 @@ public class ArrayList<E> {
         this(DEFAULT_CAPACITY);
     }
 
-    public int getCapacity() {
-        return data.length;
-    }
-
     public int getSize() {
         return size;
     }
