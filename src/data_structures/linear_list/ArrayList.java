@@ -29,6 +29,39 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
+     * 判断是否包含指定的元素
+     *
+     * @param o 待检测的元素
+     * @return 包含指定的元素，返回true
+     */
+    public boolean contains(Object o) {
+        return indexOf(o) >= 0;
+    }
+
+    /**
+     * 获取指定元素在list中首次出现的索引
+     *
+     * @param o 待查询的元素
+     * @return 元素首次出现的索引，若list中不包含指定元素，返回-1
+     */
+    public int indexOf(Object o) {
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (elementData[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(elementData[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
      * 在指定的索引位置插入元素
      *
      * @param idx 索引位置
@@ -59,60 +92,6 @@ public class ArrayList<E> implements List<E> {
 
     public void addFirst(E e) {
         add(0, e);
-    }
-
-    /**
-     * 获取指定索引位置的元素
-     *
-     * @param idx 索引位置
-     * @return E
-     */
-    public E get(int idx) {
-        if (idx < 0 || idx >= size) {
-            throw new IllegalArgumentException("Index is out of boundary.");
-        }
-
-        return data[idx];
-    }
-
-    public void set(int idx, E e) {
-        if (idx < 0 || idx >= size) {
-            throw new IllegalArgumentException("Index is out of boundary.");
-        }
-
-        data[idx] = e;
-    }
-
-    /**
-     * 判断数组是否某个元素
-     *
-     * @param e 待查找的元素
-     * @return boolean
-     */
-    public boolean contains(E e) {
-        for (int i = 0; i < size; i++) {
-            if (data[i].equals(e)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * 查找元素e所在的索引
-     *
-     * @param e 元素
-     * @return int
-     */
-    public int find(E e) {
-        for (int i = 0; i < size; i++) {
-            if (data[i].equals(e)) {
-                return i;
-            }
-        }
-
-        return -1;
     }
 
     /**
