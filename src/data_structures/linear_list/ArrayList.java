@@ -147,29 +147,20 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
-     * 移除指定索引位置的元素，并返回之
+     * 移除指定索引位置上的元素，后面的元素向左移动一个索引位置
      *
-     * @param idx 索引
-     * @return E element
+     * @param index 带移除元素所在的索引位置
+     * @return 被移除的元素
      */
-    public E remove(int idx) {
-        if (idx < 0 || idx >= size) {
-            throw new IllegalArgumentException("Index parameter is out of boundary.");
+    public E remove(int index) {
+        rangeCheck(index);
+
+        E oldValue = elementData(index);
+        for (int i = index; i < size - 1; i++) {
+            elementData[i] = elementData[i + 1];
         }
-
-        E tmpCell = data[idx];
-        if (size - 1 - idx >= 0) {
-            System.arraycopy(data, idx + 1, data, idx, size - 1 - idx);
-        }
-        data[size - 1] = null; // to be a loitering object
-
-        size--;
-
-        if (size == data.length / 4 && data.length / 2 != 0) {
-            resize(data.length / 2);
-        }
-
-        return tmpCell;
+        elementData[--size] = null; // Let GC do its work!
+        return oldValue;
     }
 
     /**
