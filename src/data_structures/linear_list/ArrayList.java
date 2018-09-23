@@ -62,6 +62,33 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
+     * 获取指定索引位置上的元素
+     *
+     * @param index 索引
+     * @return 指定索引位置上的元素
+     */
+    public E get(int index) {
+        rangeCheck(index);
+
+        return elementData(index);
+    }
+
+    @SuppressWarnings("unchecked")
+    private E elementData(int index) {
+        return (E) elementData[index];
+    }
+
+    private void rangeCheck(int index) {
+        if (index >= size) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private String outOfBoundsMsg(int index) {
+        return "Index: " + index + ", Size: " + size;
+    }
+
+    /**
      * 在指定的索引位置插入元素
      *
      * @param idx 索引位置
