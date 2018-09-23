@@ -1,5 +1,7 @@
 package data_structures.linear_list;
 
+import java.util.Arrays;
+
 public class ArrayList<E> implements List<E> {
     private static final int DEFAULT_CAPACITY = 10;
     private static final Object[] EMPTY_ELEMENTDATA = {};
@@ -104,6 +106,21 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
+     * 在list的尾部添加元素
+     *
+     * @param e 待添加的元素
+     * @return 方法执行后，list发生变化，返回true
+     */
+    public boolean add(E e) {
+        if (size == elementData.length) {
+            resize(2 * elementData.length);
+        }
+
+        elementData[size++] = e;
+        return true;
+    }
+
+    /**
      * 在指定的索引位置插入元素
      *
      * @param idx 索引位置
@@ -154,19 +171,13 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
-     * 数组扩容
+     * 调整静态数组空间大小
      *
-     * @param capacity 容量
+     * @param newCapacity 待调整的容量
      */
     @SuppressWarnings("unchecked")
-    private void resize(int capacity) {
-        E[] newData = (E[]) new Object[capacity];
-
-        if (size >= 0) {
-            System.arraycopy(data, 0, newData, 0, size);
-        }
-
-        data = newData;
+    private void resize(int newCapacity) {
+        elementData = Arrays.copyOf(elementData, newCapacity);
     }
 
     @Override
