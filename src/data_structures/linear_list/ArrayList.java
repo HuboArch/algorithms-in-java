@@ -1,6 +1,6 @@
 package data_structures.linear_list;
 
-public class ArrayList<E> {
+public class ArrayList<E> implements List<E> {
     private static final int DEFAULT_CAPACITY = 10;
     private static final Object[] EMPTY_ELEMENTDATA = {};
     private Object[] elementData;
@@ -20,7 +20,7 @@ public class ArrayList<E> {
         this(DEFAULT_CAPACITY);
     }
 
-    public int getSize() {
+    public int size() {
         return size;
     }
 
