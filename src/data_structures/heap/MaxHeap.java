@@ -1,17 +1,17 @@
 package data_structures.heap;
 
-import data_structures.linear_list.Array;
+import data_structures.linear_list.ArrayList;
 
 public class MaxHeap<E extends Comparable<E>> {
 
-    private Array<E> data;
+    private ArrayList<E> data;
 
     public MaxHeap(int capacity) {
-        data = new Array<>(capacity);
+        data = new ArrayList<>(capacity);
     }
 
     public MaxHeap() {
-        data = new Array<>();
+        data = new ArrayList<>();
     }
 
     public int size() {
