@@ -177,10 +177,10 @@ public class ArrayList<E> implements List<E> {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append(String.format("max_heap.data_structures.linear_list.ArrayList: size = %d, capacity = %d\n", size, data.length));
+        builder.append(String.format("ArrayList: size = %d, capacity = %d\n", size, elementData.length));
         builder.append("[");
         for (int i = 0; i < size; i++) {
-            builder.append(data[i]);
+            builder.append(elementData[i]);
             if (i != size - 1) {
                 builder.append(", ");
             }
