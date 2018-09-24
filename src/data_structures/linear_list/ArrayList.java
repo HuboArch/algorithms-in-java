@@ -164,6 +164,38 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
+     * 移除list中首次出现的指定元素
+     *
+     * @param o 待移除的元素
+     * @return 如果list中包含指定元素，返回true
+     */
+    public boolean remove(Object o) {
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (elementData[i] == null) {
+                    fastRemove(i);
+                    return true;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(elementData[i])) {
+                    fastRemove(i);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private void fastRemove(int index) {
+        for (int i = index; i < size - 1; i++) {
+            elementData[i] = elementData[i + 1];
+        }
+        elementData[--size] = null; // let GC do its work
+    }
+
+    /**
      * 调整静态数组空间大小
      *
      * @param newCapacity 待调整的容量
