@@ -196,6 +196,17 @@ public class ArrayList<E> implements List<E> {
     }
 
     /**
+     * 清空array list
+     */
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            elementData[i] = null; // let GC do its work
+        }
+
+        size = 0;
+    }
+
+    /**
      * 调整静态数组空间大小
      *
      * @param newCapacity 待调整的容量
