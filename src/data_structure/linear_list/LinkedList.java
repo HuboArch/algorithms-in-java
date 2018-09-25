@@ -141,4 +141,11 @@ public class LinkedList<E> implements List<E> {
 
         return element;
     }
+
+    /**
+     * 获取链表中元素的数量
+     */
+    public int size() {
+        return size;
+    }
 }
