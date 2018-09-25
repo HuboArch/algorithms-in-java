@@ -1,4 +1,4 @@
-package data_structures.tree.binary_search_tree;
+package data_structure.tree.binary_search_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

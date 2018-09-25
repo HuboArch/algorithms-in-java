@@ -1,4 +1,4 @@
-package data_structures.linear_list;
+package data_structure.linear_list;
 
 public class LinkedList<E> {
     private static class Node<E> {

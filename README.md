@@ -1,2 +1,2 @@
-# algorithms-in-java
-Data-structures and algorithms implemented in java
+# algorithm-in-java
+Data-structures and algorithm implemented in java

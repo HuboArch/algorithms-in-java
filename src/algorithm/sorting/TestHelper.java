@@ -1,4 +1,4 @@
-package algorithms.sorting;
+package algorithm.sorting;
 
 import java.lang.reflect.Method;
 

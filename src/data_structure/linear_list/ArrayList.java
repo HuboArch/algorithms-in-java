@@ -1,4 +1,4 @@
-package data_structures.linear_list;
+package data_structure.linear_list;
 
 import java.util.Arrays;
 

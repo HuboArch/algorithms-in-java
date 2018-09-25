@@ -1,4 +1,4 @@
-package algorithms.sorting.selection_sort;
+package algorithm.sorting.selection_sort;
 
 public class SelectionSort {
 
