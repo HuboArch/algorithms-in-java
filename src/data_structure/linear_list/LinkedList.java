@@ -49,4 +49,19 @@ public class LinkedList<E> implements List<E> {
         }
         size++;
     }
+
+    /**
+     * 在指定的非空节点前插入指定元素
+     */
+    private void linkBefore(E e, Node<E> succ) {
+        final Node<E> pred = succ.prev;
+        final Node<E> newNode = new Node<>(pred, e, succ);
+        succ.prev = newNode;
+        if (pred == null) {
+            first = newNode;
+        } else {
+            pred.next = newNode;
+        }
+        size++;
+    }
 }
