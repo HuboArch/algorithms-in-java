@@ -69,7 +69,7 @@ public class LinkedList<E> implements List<E> {
      * 移除非空首节点
      */
     private E unlinkFirst(Node<E> f) {
-        // assert f === this.first && f != null
+        // assert f == this.first && f != null
         final E element = f.item;
         final Node<E> next = f.next;
 
@@ -81,6 +81,30 @@ public class LinkedList<E> implements List<E> {
             last = null;
         } else {
             next.prev = null;
+        }
+
+        size--;
+
+        return element;
+    }
+
+    /**
+     * 移除非空尾节点
+     */
+    private E unlinkLast(Node<E> l) {
+        // assert l == this.last && l != null
+        final E element = l.item;
+        final Node<E> prev = l.prev;
+
+        // let GC do its work
+        l.item = null;
+        l.prev = null;
+
+        last = prev;
+        if (prev == null) {
+            first = null;
+        } else {
+            prev.next = null;
         }
 
         size--;
