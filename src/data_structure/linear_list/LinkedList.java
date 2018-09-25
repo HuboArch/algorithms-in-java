@@ -64,4 +64,27 @@ public class LinkedList<E> implements List<E> {
         }
         size++;
     }
+
+    /**
+     * 移除非空首节点
+     */
+    private E unlinkFirst(Node<E> f) {
+        // assert f === this.first && f != null
+        final E element = f.item;
+        final Node<E> next = f.next;
+
+        f.item = null;
+        f.next = null; // let GC do its work
+
+        first = next;
+        if (next == null) {
+            last = null;
+        } else {
+            next.prev = null;
+        }
+
+        size--;
+
+        return element;
+    }
 }
