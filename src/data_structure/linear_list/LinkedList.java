@@ -1,6 +1,6 @@
 package data_structure.linear_list;
 
-public class LinkedList<E> {
+public class LinkedList<E> implements List<E> {
     private static class Node<E> {
         E item;
         Node<E> prev;
@@ -31,6 +31,21 @@ public class LinkedList<E> {
             last = newNode;
         } else {
             f.prev = newNode;
+        }
+        size++;
+    }
+
+    /**
+     * 在链表尾部添加节点
+     */
+    private void linkLast(E e) {
+        final Node<E> l = last;
+        final Node<E> newNode = new Node<>(l, e, null);
+        last = newNode;
+        if (l == null) {
+            first = newNode;
+        } else {
+            l.next = newNode;
         }
         size++;
     }
