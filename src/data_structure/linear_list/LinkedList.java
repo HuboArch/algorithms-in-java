@@ -26,12 +26,14 @@ public class LinkedList<E> implements List<E> {
     private void linkFirst(E e) {
         final Node<E> f = first;
         final Node<E> newNode = new Node<>(null, e, f);
+
         first = newNode;
         if (f == null) {
             last = newNode;
         } else {
             f.prev = newNode;
         }
+
         size++;
     }
 
@@ -41,12 +43,14 @@ public class LinkedList<E> implements List<E> {
     private void linkLast(E e) {
         final Node<E> l = last;
         final Node<E> newNode = new Node<>(l, e, null);
+
         last = newNode;
         if (l == null) {
             first = newNode;
         } else {
             l.next = newNode;
         }
+
         size++;
     }
 
@@ -56,12 +60,14 @@ public class LinkedList<E> implements List<E> {
     private void linkBefore(E e, Node<E> succ) {
         final Node<E> pred = succ.prev;
         final Node<E> newNode = new Node<>(pred, e, succ);
+
         succ.prev = newNode;
         if (pred == null) {
             first = newNode;
         } else {
             pred.next = newNode;
         }
+
         size++;
     }
 
