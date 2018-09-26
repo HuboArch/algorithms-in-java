@@ -187,7 +187,7 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return indexOf(o) >= 0;
     }
 
     @Override
