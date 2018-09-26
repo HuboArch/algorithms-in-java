@@ -192,7 +192,8 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public boolean add(E e) {
-        return false;
+        linkLast(e);
+        return true;
     }
 
     @Override
