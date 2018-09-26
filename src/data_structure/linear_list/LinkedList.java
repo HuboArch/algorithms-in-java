@@ -250,4 +250,11 @@ public class LinkedList<E> implements List<E> {
         first = last = null;
         size = 0;
     }
+
+    /**
+     * 判断是否是有效的元素索引
+     */
+    private boolean isElementIndex(int index) {
+        return index >= 0 && index < size;
+    }
 }
