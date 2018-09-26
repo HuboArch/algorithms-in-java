@@ -219,6 +219,18 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public void clear() {
+        Node<E> x = first;
+        while (x != null) {
+            Node<E> next = x.next;
 
+            x.item = null;
+            x.prev = null;
+            x.next = null;
+
+            x = next;
+        }
+
+        first = last = null;
+        size = 0;
     }
 }
