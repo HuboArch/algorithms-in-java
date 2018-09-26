@@ -257,4 +257,11 @@ public class LinkedList<E> implements List<E> {
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
     }
+
+    /**
+     * 判断是否是有效的位置索引
+     */
+    private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
+    }
 }
