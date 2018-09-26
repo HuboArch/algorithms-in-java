@@ -271,4 +271,10 @@ public class LinkedList<E> implements List<E> {
     private String outOfBoundsMsg(int index) {
         return "Index: " + index + ", Size: " + size;
     }
+
+    private void checkElementIndex(int index) {
+        if (!isElementIndex(index)) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
 }
