@@ -274,7 +274,7 @@ public class LinkedList<E> implements List<E> {
 
     private void checkElementIndex(int index) {
         if (!isElementIndex(index)) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
         }
     }
 }
