@@ -264,4 +264,11 @@ public class LinkedList<E> implements List<E> {
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
     }
+
+    /**
+     * 构造IndexOutOfBoundsException详细信息
+     */
+    private String outOfBoundsMsg(int index) {
+        return "Index: " + index + ", Size: " + size;
+    }
 }
