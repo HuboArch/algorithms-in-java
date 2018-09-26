@@ -148,10 +148,60 @@ public class LinkedList<E> implements List<E> {
         return element;
     }
 
+    @Override
+    public E get(int index) {
+        return null;
+    }
+
+    @Override
+    public E set(int index, E element) {
+        return null;
+    }
+
+    @Override
+    public void add(int index, E element) {
+
+    }
+
+    @Override
+    public E remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
     /**
      * 获取链表中元素的数量
      */
     public int size() {
         return size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean add(E e) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
     }
 }
