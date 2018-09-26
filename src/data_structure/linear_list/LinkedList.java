@@ -277,4 +277,10 @@ public class LinkedList<E> implements List<E> {
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
         }
     }
+
+    private void checkPositionIndex(int index) {
+        if (!isPositionIndex(index)) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
 }
