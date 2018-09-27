@@ -179,7 +179,9 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E remove(int index) {
-        return null;
+        checkElementIndex(index);
+
+        return unlink(node(index));
     }
 
     @Override
