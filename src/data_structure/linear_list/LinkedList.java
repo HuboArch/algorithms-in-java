@@ -157,7 +157,13 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E set(int index, E element) {
-        return null;
+        checkElementIndex(index);
+
+        Node<E> x = node(index);
+        E oldVal = x.item;
+        x.item = element;
+
+        return oldVal;
     }
 
     @Override
