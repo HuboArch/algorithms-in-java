@@ -168,7 +168,13 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public void add(int index, E element) {
+        checkPositionIndex(index);
 
+        if (index == size) {
+            linkLast(element);
+        } else {
+            linkBefore(element, node(index));
+        }
     }
 
     @Override
