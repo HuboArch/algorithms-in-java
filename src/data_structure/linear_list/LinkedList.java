@@ -244,6 +244,8 @@ public class LinkedList<E> implements List<E> {
      * 在指定的非空节点前插入指定元素
      */
     private void linkBefore(E e, Node<E> succ) {
+        // assert succ != null
+
         final Node<E> pred = succ.prev;
         final Node<E> newNode = new Node<>(pred, e, succ);
 
