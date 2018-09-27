@@ -17,17 +17,17 @@ public interface Collection<E> {
     boolean isEmpty();
 
     /**
-     * 判断collection中是否含有指定的元素
+     * 判断collection中是否包含指定的元素
      *
-     * @param o 待检测的元素
-     * @return 如果包含指定的元素，返回true
+     * @param o 待核查的元素
+     * @return 如果collection中包含指定的元素，返回true
      */
     boolean contains(Object o);
 
     /**
-     * 确保collection包含指定的元素
+     * 确保collection中包含指定的元素
      *
-     * @param e 被确保要添加进collection中的元素
+     * @param e 确保要被添加进collection中的元素
      * @return 如果该方法执行后，collection发生了变化，返回true
      */
     boolean add(E e);

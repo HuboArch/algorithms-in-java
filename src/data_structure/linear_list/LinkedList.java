@@ -20,8 +20,194 @@ public class LinkedList<E> implements List<E> {
     public LinkedList() {
     }
 
+    /*=============================================================*/
+    /*===================== 实现List接口中的方法 =====================*/
+    /*=============================================================*/
+
     /**
-     * 在链表首部添加节点
+     * 获取指定索引上的元素
+     *
+     * @param index 待返回元素所在的索引
+     * @return 指定索引上的元素
+     */
+    @Override
+    public E get(int index) {
+        checkElementIndex(index);
+
+        return node(index).item;
+    }
+
+    /**
+     * 替换指定索引上的元素
+     *
+     * @param index   待替换元素所在的索引
+     * @param element 待存储的元素
+     * @return 该索引上之前存储的元素
+     */
+    @Override
+    public E set(int index, E element) {
+        checkElementIndex(index);
+
+        Node<E> x = node(index);
+        E oldVal = x.item;
+        x.item = element;
+
+        return oldVal;
+    }
+
+    /**
+     * 在指定的位置插入元素，该位置后面的元素(包括该位置上的元素)索引加一
+     *
+     * @param index   待插入的位置索引
+     * @param element 待插入的元素
+     */
+    @Override
+    public void add(int index, E element) {
+        checkPositionIndex(index);
+
+        if (index == size) {
+            linkLast(element);
+        } else {
+            linkBefore(element, node(index));
+        }
+    }
+
+    /**
+     * 移除指定索引上的元素，后面的元素索引减一
+     *
+     * @param index 待移除元素所在的索引
+     * @return 被移除的元素
+     */
+    @Override
+    public E remove(int index) {
+        checkElementIndex(index);
+
+        return unlink(node(index));
+    }
+
+    /**
+     * 获取指定元素第一次出现所在的索引
+     *
+     * @param o 待查询的元素
+     * @return 返回元素第一次出现所在的索引，若不存在该元素，返回 -1
+     */
+    @Override
+    public int indexOf(Object o) {
+        int index = 0;
+        if (o == null) {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (x.item == null) {
+                    return index;
+                }
+                index++;
+            }
+        } else {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (o.equals(x.item)) {
+                    return index;
+                }
+                index++;
+            }
+        }
+
+        return -1;
+    }
+
+    /*=============================================================*/
+    /*================== 实现Collection接口中的方法 ==================*/
+    /*=============================================================*/
+
+    /**
+     * 获取链表中元素的数量
+     */
+    public int size() {
+        return size;
+    }
+
+    /**
+     * 判断链表是否为空
+     */
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
+     * 判断链表中是否包含指定的元素
+     *
+     * @param o 待核查的元素
+     * @return 若链表中包含指定的元素，返回true
+     */
+    @Override
+    public boolean contains(Object o) {
+        return indexOf(o) >= 0;
+    }
+
+    /**
+     * 在链表的尾部添加元素
+     *
+     * @param e 待添加的元素
+     * @return 方法执行后，链表发生了变化，返回true
+     */
+    @Override
+    public boolean add(E e) {
+        linkLast(e);
+        return true;
+    }
+
+    /**
+     * 移除链表中首次出现的指定元素
+     *
+     * @param o 待移除的元素
+     * @return 如果链表中包含指定元素，返回true
+     */
+    @Override
+    public boolean remove(Object o) {
+        if (o == null) {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (x.item == null) {
+                    unlink(x);
+                    return true;
+                }
+            }
+        } else {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (o.equals(x.item)) {
+                    unlink(x);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * 清空链表
+     */
+    @Override
+    public void clear() {
+        Node<E> x = first;
+        while (x != null) {
+            Node<E> next = x.next;
+
+            x.item = null;
+            x.prev = null;
+            x.next = null;
+
+            x = next;
+        }
+
+        first = last = null;
+        size = 0;
+    }
+
+    /*=============================================================*/
+    /*========================== 私有方法 ==========================*/
+    /*=============================================================*/
+
+    /**
+     * 在链表首部添加指定的元素
      */
     private void linkFirst(E e) {
         final Node<E> f = first;
@@ -38,7 +224,7 @@ public class LinkedList<E> implements List<E> {
     }
 
     /**
-     * 在链表尾部添加节点
+     * 在链表尾部添加指定的元素
      */
     private void linkLast(E e) {
         final Node<E> l = last;
@@ -146,125 +332,6 @@ public class LinkedList<E> implements List<E> {
         size--;
 
         return element;
-    }
-
-    @Override
-    public E get(int index) {
-        checkElementIndex(index);
-
-        return node(index).item;
-    }
-
-    @Override
-    public E set(int index, E element) {
-        checkElementIndex(index);
-
-        Node<E> x = node(index);
-        E oldVal = x.item;
-        x.item = element;
-
-        return oldVal;
-    }
-
-    @Override
-    public void add(int index, E element) {
-        checkPositionIndex(index);
-
-        if (index == size) {
-            linkLast(element);
-        } else {
-            linkBefore(element, node(index));
-        }
-    }
-
-    @Override
-    public E remove(int index) {
-        checkElementIndex(index);
-
-        return unlink(node(index));
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        int index = 0;
-        if (o == null) {
-            for (Node<E> x = first; x != null; x = x.next) {
-                if (x.item == null) {
-                    return index;
-                }
-                index++;
-            }
-        } else {
-            for (Node<E> x = first; x != null; x = x.next) {
-                if (o.equals(x.item)) {
-                    return index;
-                }
-                index++;
-            }
-        }
-
-        return -1;
-    }
-
-    /**
-     * 获取链表中元素的数量
-     */
-    public int size() {
-        return size;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return indexOf(o) >= 0;
-    }
-
-    @Override
-    public boolean add(E e) {
-        linkLast(e);
-        return true;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        if (o == null) {
-            for (Node<E> x = first; x != null; x = x.next) {
-                if (x.item == null) {
-                    unlink(x);
-                    return true;
-                }
-            }
-        } else {
-            for (Node<E> x = first; x != null; x = x.next) {
-                if (o.equals(x.item)) {
-                    unlink(x);
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    @Override
-    public void clear() {
-        Node<E> x = first;
-        while (x != null) {
-            Node<E> next = x.next;
-
-            x.item = null;
-            x.prev = null;
-            x.next = null;
-
-            x = next;
-        }
-
-        first = last = null;
-        size = 0;
     }
 
     /**

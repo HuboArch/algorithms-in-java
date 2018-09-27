@@ -15,28 +15,28 @@ public interface List<E> extends Collection<E> {
      *
      * @param index   索引
      * @param element 待存储的元素
-     * @return 该索引位置上之前的元素
+     * @return 该索引上之前存储的元素
      */
     E set(int index, E element);
 
     /**
-     * 在指定的索引位置插入元素，后面的元素向右移动一个索引位置
+     * 在指定的位置插入元素，该位置后面的元素(包括该位置上的元素)索引加一
      *
-     * @param index   待插入的索引位置
+     * @param index   待插入的位置索引
      * @param element 待插入的元素
      */
     void add(int index, E element);
 
     /**
-     * 移除指定索引位置上的元素，后面的元素向左移动一个索引位置
+     * 移除指定索引上的元素，后面的元素索引减一
      *
-     * @param index 带移除元素所在的索引位置
+     * @param index 待移除元素所在的索引
      * @return 被移除的元素
      */
     E remove(int index);
 
     /**
-     * 获取指定元素第一次出现所在的位置索引
+     * 获取指定元素第一次出现所在的索引
      *
      * @param o 待查询的元素
      * @return 返回元素第一次出现所在的索引，若不存在该元素，返回 -1
@@ -64,8 +64,8 @@ public interface List<E> extends Collection<E> {
     /**
      * 判断list中是否包含指定的元素
      *
-     * @param o 待检测的元素
-     * @return list中包含指定的元素，返回true
+     * @param o 待核查的元素
+     * @return 若list中包含指定的元素，返回true
      */
     boolean contains(Object o);
 
