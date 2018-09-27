@@ -150,7 +150,9 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        checkElementIndex(index);
+
+        return node(index).item;
     }
 
     @Override
