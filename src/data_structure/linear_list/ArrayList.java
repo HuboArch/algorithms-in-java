@@ -22,46 +22,9 @@ public class ArrayList<E> implements List<E> {
         this(DEFAULT_CAPACITY);
     }
 
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    /**
-     * 判断是否包含指定的元素
-     *
-     * @param o 待检测的元素
-     * @return 包含指定的元素，返回true
-     */
-    public boolean contains(Object o) {
-        return indexOf(o) >= 0;
-    }
-
-    /**
-     * 获取指定元素在list中首次出现的索引
-     *
-     * @param o 待查询的元素
-     * @return 元素首次出现的索引，若list中不包含指定元素，返回-1
-     */
-    public int indexOf(Object o) {
-        if (o == null) {
-            for (int i = 0; i < size; i++) {
-                if (elementData[i] == null) {
-                    return i;
-                }
-            }
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (o.equals(elementData[i])) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
+    /*=============================================================*/
+    /*===================== 实现List接口中的方法 =====================*/
+    /*=============================================================*/
 
     /**
      * 获取指定索引位置上的元素
@@ -90,34 +53,27 @@ public class ArrayList<E> implements List<E> {
         return oldValue;
     }
 
-    @SuppressWarnings("unchecked")
-    private E elementData(int index) {
-        return (E) elementData[index];
-    }
-
-    private void rangeCheck(int index) {
-        if (index >= size) {
-            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
-        }
-    }
-
-    private String outOfBoundsMsg(int index) {
-        return "Index: " + index + ", Size: " + size;
-    }
-
     /**
-     * 在list的尾部添加元素
+     * 获取指定元素在list中首次出现的索引
      *
-     * @param e 待添加的元素
-     * @return 方法执行后，list发生变化，返回true
+     * @param o 待查询的元素
+     * @return 元素首次出现的索引，若list中不包含指定元素，返回-1
      */
-    public boolean add(E e) {
-        if (size == elementData.length) {
-            resize(2 * elementData.length);
+    public int indexOf(Object o) {
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (elementData[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(elementData[i])) {
+                    return i;
+                }
+            }
         }
-
-        elementData[size++] = e;
-        return true;
+        return -1;
     }
 
     /**
@@ -140,14 +96,8 @@ public class ArrayList<E> implements List<E> {
         size++;
     }
 
-    private void rangeCheckForAdd(int index) {
-        if (index > size || index < 0) {
-            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
-        }
-    }
-
     /**
-     * 移除指定索引位置上的元素，后面的元素向左移动一个索引位置
+     * 移除指定索引上的元素，后面的元素索引减一
      *
      * @param index 带移除元素所在的索引位置
      * @return 被移除的元素
@@ -161,6 +111,43 @@ public class ArrayList<E> implements List<E> {
         }
         elementData[--size] = null; // Let GC do its work!
         return oldValue;
+    }
+
+    /*=============================================================*/
+    /*================== 实现Collection接口中的方法 ==================*/
+    /*=============================================================*/
+
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
+     * 判断是否包含指定的元素
+     *
+     * @param o 待核查的元素
+     * @return 包含指定的元素，返回true
+     */
+    public boolean contains(Object o) {
+        return indexOf(o) >= 0;
+    }
+
+    /**
+     * 在list的尾部添加元素
+     *
+     * @param e 待添加的元素
+     * @return 方法执行后，list发生变化，返回true
+     */
+    public boolean add(E e) {
+        if (size == elementData.length) {
+            resize(2 * elementData.length);
+        }
+
+        elementData[size++] = e;
+        return true;
     }
 
     /**
@@ -188,13 +175,6 @@ public class ArrayList<E> implements List<E> {
         return false;
     }
 
-    private void fastRemove(int index) {
-        for (int i = index; i < size - 1; i++) {
-            elementData[i] = elementData[i + 1];
-        }
-        elementData[--size] = null; // let GC do its work
-    }
-
     /**
      * 清空array list
      */
@@ -206,6 +186,31 @@ public class ArrayList<E> implements List<E> {
         size = 0;
     }
 
+    /*=============================================================*/
+    /*========================== 私有方法 ==========================*/
+    /*=============================================================*/
+
+    @SuppressWarnings("unchecked")
+    private E elementData(int index) {
+        return (E) elementData[index];
+    }
+
+    private void rangeCheck(int index) {
+        if (index >= size) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private String outOfBoundsMsg(int index) {
+        return "Index: " + index + ", Size: " + size;
+    }
+
     /**
      * 调整静态数组空间大小
      *
@@ -214,6 +219,13 @@ public class ArrayList<E> implements List<E> {
     @SuppressWarnings("unchecked")
     private void resize(int newCapacity) {
         elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+
+    private void fastRemove(int index) {
+        for (int i = index; i < size - 1; i++) {
+            elementData[i] = elementData[i + 1];
+        }
+        elementData[--size] = null; // let GC do its work
     }
 
     @Override
