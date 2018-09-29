@@ -61,7 +61,7 @@ public class MinHeap<E extends Comparable<E>> {
 
     /**
      * 在指定的位置插入元素，之后，为了维持堆的特性，需要上移
-     * 插入的元素，直到元素大于或等于父节点中的值
+     * 插入的元素，直到元素大于或等于父节点中的值或者成为根节点
      *
      * @param k 待插入的位置
      * @param x 待插入的元素
@@ -100,6 +100,65 @@ public class MinHeap<E extends Comparable<E>> {
 
             data.set(k, e);
             k = parent;
+        }
+        data.set(k, x);
+    }
+
+    /**
+     * 在指定的位置插入元素，之后，为了维持堆的特性，需要下移
+     * 插入的元素，直到元素小于或等于子节点中的最小值或是变为叶子节点
+     *
+     * @param k 待插入的位置
+     * @param x 待插入的元素
+     */
+    private void siftDown(int k, E x) {
+        if (comparator != null) {
+            siftDownUsingComparator(k, x);
+        } else {
+            siftDownComparable(k, x);
+        }
+    }
+
+    private void siftDownComparable(int k, E x) {
+        int size = size();
+        int half = size >>> 1;
+        while (k < half) {                 // 循环至没有子节点，2*k + 1 < size ==> k < size/2 - 1/2 ==> k < size/2
+            int child = leftChildIndex(k); // 假设左子节点中值最小
+            E c = data.get(child);
+
+            int right = child + 1;
+            if (right < size && c.compareTo(data.get(right)) > 0) {
+                c = data.get(child = right);
+            }
+
+            if (x.compareTo(c) <= 0) {
+                break;
+            }
+
+            data.set(k, c);
+            k = child;
+        }
+        data.set(k, x);
+    }
+
+    private void siftDownUsingComparator(int k, E x) {
+        int size = size();
+        int half = size >>> 1;
+        while (k < half) {                 // 循环至没有子节点，2*k + 1 < size ==> k < size/2 - 1/2 ==> k < size/2
+            int child = leftChildIndex(k); // 假设左子节点中值最小
+            E c = data.get(child);
+
+            int right = child + 1;
+            if (right < size && comparator.compare(c, data.get(right)) > 0) {
+                c = data.get(child = right);
+            }
+
+            if (comparator.compare(x, c) <= 0) {
+                break;
+            }
+
+            data.set(k, c);
+            k = child;
         }
         data.set(k, x);
     }
