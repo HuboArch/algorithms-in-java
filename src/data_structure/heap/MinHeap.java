@@ -26,4 +26,28 @@ public class MinHeap<E extends Comparable<E>> {
         this.data = new ArrayList<>(initialCapacity);
         this.comparator = comparator;
     }
+
+    /*=============================================================*/
+    /*========================== 私有方法 ==========================*/
+    /*=============================================================*/
+
+    /**
+     * 在完全二叉树的数组表示中，获取指定节点的父亲节点所在的索引
+     *
+     * @param index 待查询的节点的在数组中的索引
+     * @return 父亲节点在数组中的索引
+     */
+    private int parentIndex(int index) {
+        return (index - 1) / 2;
+    }
+
+    /**
+     * 获取指定节点的左子节点在数组中的索引
+     *
+     * @param index 待查询节点在数组中的索引
+     * @return 左子节点的索引
+     */
+    private int leftChildIndex(int index) {
+        return 2 * index + 1;
+    }
 }
