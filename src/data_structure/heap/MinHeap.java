@@ -6,7 +6,6 @@ import java.util.Comparator;
 
 public class MinHeap<E extends Comparable<E>> {
     private ArrayList<E> data;
-    private int size = 0;
     private final Comparator<? super E> comparator;
 
     public MinHeap() {
