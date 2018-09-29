@@ -58,4 +58,50 @@ public class MinHeap<E extends Comparable<E>> {
     private int leftChildIndex(int index) {
         return 2 * index + 1;
     }
+
+    /**
+     * 在指定的位置插入元素，之后，为了维持堆的特性，需要上移
+     * 插入的元素，直到元素大于或等于父节点中的值
+     *
+     * @param k 待插入的位置
+     * @param x 待插入的元素
+     */
+    private void siftUp(int k, E x) {
+        if (comparator != null) {
+            siftUpUsingComparator(k, x);
+        } else {
+            siftUpComparable(k, x);
+        }
+    }
+
+    private void siftUpComparable(int k, E x) {
+        while (k > 0) {
+            int parent = parentIndex(k);
+            E e = data.get(parent);
+
+            if (x.compareTo(e) >= 0) {
+                break;
+            }
+
+            data.set(k, e);
+            k = parent;
+        }
+        data.set(k, x);
+    }
+
+    private void siftUpUsingComparator(int k, E x) {
+        while (k > 0) {
+            int parent = parentIndex(k);
+            E e = data.get(parent);
+
+            if (comparator.compare(x, e) >= 0) {
+                break;
+            }
+
+            data.set(k, e);
+            k = parent;
+        }
+        data.set(k, x);
+    }
+
 }
