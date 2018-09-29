@@ -13,6 +13,10 @@ public class MinHeap<E extends Comparable<E>> {
         this(null);
     }
 
+    public MinHeap(int initialCapacity) {
+        this(initialCapacity, null);
+    }
+
     public MinHeap(Comparator<? super E> comparator) {
         this.data = new ArrayList<>();
         this.comparator = comparator;
