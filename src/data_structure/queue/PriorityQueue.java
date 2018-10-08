@@ -26,7 +26,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        return eMinHeap.isEmpty();
     }
 
     /**
