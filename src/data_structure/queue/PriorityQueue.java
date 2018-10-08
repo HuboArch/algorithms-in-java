@@ -2,7 +2,7 @@ package data_structure.queue;
 
 import data_structure.heap.MinHeap;
 
-public class PriorityQueue<E extends Comparable<E>> implements Queue<E>{
+public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
     private MinHeap<E> eMinHeap;
 
     public PriorityQueue() {
@@ -16,7 +16,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E>{
      */
     @Override
     public int size() {
-        return 0;
+        return eMinHeap.size();
     }
 
     /**
