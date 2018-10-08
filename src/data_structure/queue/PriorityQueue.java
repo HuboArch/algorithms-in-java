@@ -48,7 +48,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
      */
     @Override
     public boolean add(E e) {
-        return false;
+        return offer(e);
     }
 
     /**
