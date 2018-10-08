@@ -48,6 +48,26 @@ public class MinHeap<E extends Comparable<E>> {
         return data.get(0);
     }
 
+    /**
+     * 向堆中添加元素
+     *
+     * @param e 待添加的元素
+     */
+    public boolean offer(E e) {
+        if (e == null) {
+            throw new NullPointerException();
+        }
+
+        data.add(e);
+
+        // 为维持最小堆的特性，新添加的元素需要上浮
+        int i = size() - 1;
+        if (i != 0) {
+            siftUp(i, e);
+        }
+
+        return true;
+    }
     /*=============================================================*/
     /*========================== 私有方法 ==========================*/
     /*=============================================================*/
