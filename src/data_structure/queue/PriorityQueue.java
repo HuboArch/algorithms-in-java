@@ -1,4 +1,11 @@
 package data_structure.queue;
 
-public class PriorityQueue {
+import data_structure.heap.MinHeap;
+
+public class PriorityQueue<E extends Comparable<E>> {
+    private MinHeap<E> eMinHeap;
+
+    public PriorityQueue() {
+        eMinHeap = new MinHeap<>();
+    }
 }
