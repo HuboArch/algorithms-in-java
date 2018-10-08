@@ -30,14 +30,14 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
     }
 
     /**
-     * 判断collection中是否包含指定的元素
+     * 判断队列中是否包含指定的元素
      *
-     * @param o 待核查的元素
-     * @return 如果collection中包含指定的元素，返回true
+     * @param o 待查询的元素
+     * @return 如果队列中包含指定的元素，返回true
      */
     @Override
     public boolean contains(Object o) {
-        return false;
+        return eMinHeap.contains(o);
     }
 
     /**
