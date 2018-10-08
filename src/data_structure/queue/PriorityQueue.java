@@ -79,7 +79,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
      */
     @Override
     public boolean offer(E e) {
-        return false;
+        return eMinHeap.offer(e);
     }
 
     /**
