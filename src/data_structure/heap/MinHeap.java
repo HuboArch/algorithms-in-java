@@ -88,6 +88,24 @@ public class MinHeap<E extends Comparable<E>> {
         }
     }
 
+    /**
+     * 移除最小堆的首节点
+     *
+     * @return 首节点元素
+     */
+    public E poll() {
+        int s = data.size();
+        if (s == 0) {
+            return null;
+        }
+
+        E result = data.get(0);
+        E x = data.remove(s - 1);
+        siftDown(0, x);
+
+        return result;
+    }
+
     /*=============================================================*/
     /*========================== 私有方法 ==========================*/
     /*=============================================================*/
