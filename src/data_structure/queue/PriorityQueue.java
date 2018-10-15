@@ -52,14 +52,14 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
     }
 
     /**
-     * 从collection中移除一个指定的元素(移除首次出现位置上的元素)
+     * 从队列中移除一个指定的元素(移除首次出现位置上的元素)
      *
      * @param o 待移除的元素
      * @return 如果元素被成功移除，返回true
      */
     @Override
     public boolean remove(Object o) {
-        return false;
+        return eMinHeap.remove(o);
     }
 
     /**
@@ -100,7 +100,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
      */
     @Override
     public E poll() {
-        return null;
+        return eMinHeap.poll();
     }
 
     /**
@@ -121,6 +121,6 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
      */
     @Override
     public E peek() {
-        return null;
+        return eMinHeap.peek();
     }
 }
