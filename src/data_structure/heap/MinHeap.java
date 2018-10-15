@@ -201,4 +201,24 @@ public class MinHeap<E extends Comparable<E>> {
         data.set(k, x);
     }
 
+    /**
+     * 移除指定索引的元素
+     *
+     * @param i 待移除元素的索引
+     */
+    private void removeAt(int i) {
+        int s = data.size() - 1;
+
+        if (i == s) {
+            data.remove(i);
+        } else {
+            E moved = data.get(s);
+            data.set(s, null);
+
+            siftDown(i, moved);
+            if (data.get(i) == moved) {
+                siftUp(i, moved);
+            }
+        }
+    }
 }
