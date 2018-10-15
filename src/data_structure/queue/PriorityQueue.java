@@ -67,7 +67,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
      */
     @Override
     public void clear() {
-
+        eMinHeap.clear();
     }
 
     /**

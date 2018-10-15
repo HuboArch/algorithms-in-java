@@ -37,7 +37,7 @@ public class MinHeap<E extends Comparable<E>> {
     /**
      * 判断是否包含指定元素
      *
-     * @param o 待核查元素
+     * @param o 待查询元素
      * @return 包含指定的元素，返回true
      */
     public boolean contains(Object o) {
@@ -68,6 +68,11 @@ public class MinHeap<E extends Comparable<E>> {
 
         return true;
     }
+
+    public void clear() {
+        data.clear();
+    }
+
     /*=============================================================*/
     /*========================== 私有方法 ==========================*/
     /*=============================================================*/
