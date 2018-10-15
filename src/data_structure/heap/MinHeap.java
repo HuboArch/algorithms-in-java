@@ -73,6 +73,21 @@ public class MinHeap<E extends Comparable<E>> {
         data.clear();
     }
 
+    /**
+     * 移除指定元素
+     *
+     * @param o 待移除元素
+     */
+    public boolean remove(Object o) {
+        int i = data.indexOf(o);
+        if (i == -1) {
+            return false;
+        } else {
+            removeAt(i);
+            return true;
+        }
+    }
+
     /*=============================================================*/
     /*========================== 私有方法 ==========================*/
     /*=============================================================*/
