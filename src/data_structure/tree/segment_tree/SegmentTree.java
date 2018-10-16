@@ -38,4 +38,11 @@ public class SegmentTree<E> {
     private String outOfBoundsMsg(int index) {
         return "Index: " + index + ", Size: " + size();
     }
+
+    /**
+     * 获取在完全二叉树的数组表示中，指定索引元素的左子节点的索引
+     */
+    public int leftChild(int index) {
+        return 2 * index + 1;
+    }
 }
