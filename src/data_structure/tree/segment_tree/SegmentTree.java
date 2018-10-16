@@ -14,4 +14,11 @@ public class SegmentTree<E> {
         tree = (E[]) new Object[4 * arr.length];
     }
 
+    /**
+     * 获取线段树的大小
+     */
+    public int size() {
+        return data.length;
+    }
+
 }
