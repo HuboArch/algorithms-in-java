@@ -36,6 +36,6 @@ public class SegmentTree<E> {
     }
 
     private String outOfBoundsMsg(int index) {
-        return "Index: " + index + ", Size: " + size;
+        return "Index: " + index + ", Size: " + size();
     }
 }
