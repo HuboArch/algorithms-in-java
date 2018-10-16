@@ -21,4 +21,21 @@ public class SegmentTree<E> {
         return data.length;
     }
 
+    /**
+     * 获取指定索引处的元素
+     */
+    public E get(int index) {
+        rangeCheck(index);
+        return data[index];
+    }
+
+    private void rangeCheck(int index) {
+        if (index >= size()) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private String outOfBoundsMsg(int index) {
+        return "Index: " + index + ", Size: " + size;
+    }
 }
