@@ -121,7 +121,27 @@ public class SegmentTree<E> {
     /**
      * 获取在完全二叉树的数组表示中，指定索引元素的左子节点的索引
      */
-    public int leftChild(int index) {
+    private int leftChild(int index) {
         return 2 * index + 1;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("[");
+
+        for (int i = 0; i < tree.length; i++) {
+            if (tree[i] != null) {
+                builder.append(tree[i].value);
+            } else {
+                builder.append("null");
+            }
+
+            if (i != tree.length - 1) {
+                builder.append(" ,");
+            }
+        }
+
+        return builder.toString();
     }
 }
