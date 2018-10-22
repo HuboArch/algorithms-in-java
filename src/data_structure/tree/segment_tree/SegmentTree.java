@@ -102,6 +102,39 @@ public class SegmentTree<E> {
         }
     }
 
+    /**
+     * 更新指定位置的元素
+     */
+    public void set(int index, E e) {
+        rangeCheck(index);
+
+        data[index] = e;
+        set(0, index, e);
+    }
+
+    private void set(int treeIndex, int index, E e) {
+        int nodeL = tree[treeIndex].l;
+        int nodeR = tree[treeIndex].r;
+        if (nodeL == nodeR) {
+            tree[treeIndex].value = e;
+            return;
+        }
+
+        int mid = nodeL + (nodeR - nodeL) / 2;
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = leftTreeIndex + 1;
+
+        if (index >= mid + 1) {
+            set(rightTreeIndex, index, e);
+        } else {
+            set(leftTreeIndex, index, e);
+        }
+
+        E left = tree[leftTreeIndex].value;
+        E right = tree[rightTreeIndex].value;
+        tree[treeIndex].value = merger.merge(left, right);
+    }
+
     private void rangeCheck(int index) {
         if (index >= size()) {
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
