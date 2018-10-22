@@ -2,26 +2,8 @@ package data_structure.tree.segment_tree;
 
 public class SegmentTree<E> {
 
-    private class Node {
-        int l;
-        int r;
-        int mid;
-        E value;
-
-        Node(int l, int r, E value) {
-            this.l = l;
-            this.r = r;
-            this.value = value;
-        }
-
-        Node(int l, E value) {
-            this(l, l, value);
-        }
-    }
-
-    private Node[] tree;
     private E[] data;
-
+    private Node<E>[] tree;
     private Merger<E> merger;
 
     @SuppressWarnings("unchecked")
@@ -34,25 +16,25 @@ public class SegmentTree<E> {
             data[i] = arr[i];
         }
 
-        tree = (Node[]) new Object[4 * len];
+        tree = new Node[4 * len];
         buildSegmentTree(0, 0, len - 1);
     }
 
     private void buildSegmentTree(int treeIndex, int l, int r) {
         if (l == r) {
-            tree[treeIndex] = new Node(l, data[l]);
+            tree[treeIndex] = new Node<>(l, data[l]);
             return;
         }
 
         int leftTreeIndex = leftChild(treeIndex);
         int rightTreeIndex = leftTreeIndex + 1;
-        int mid = l + (l - r) / 2;
+        int mid = l + (r-l) / 2;
 
         buildSegmentTree(leftTreeIndex, l, mid);
         buildSegmentTree(rightTreeIndex, mid + 1, r);
 
         E value = merger.merge(tree[leftTreeIndex].value, tree[rightTreeIndex].value);
-        tree[treeIndex] = new Node(l, r, value);
+        tree[treeIndex] = new Node<>(l, r, value);
     }
 
     /**
