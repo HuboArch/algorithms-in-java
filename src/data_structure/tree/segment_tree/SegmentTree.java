@@ -70,9 +70,47 @@ public class SegmentTree<E> {
         return data[index];
     }
 
+    /**
+     * 查询区间[rangeL, rangeR]内的值
+     */
+    public E query(int queryL, int queryR) {
+        rangeCheckForQuery(queryL, queryR);
+
+        return query(0, queryL, queryR);
+    }
+
+    private E query(int treeIndex, int queryL, int queryR) {
+        int nodeL = tree[treeIndex].l;
+        int nodeR = tree[treeIndex].r;
+        if (nodeL == queryL && nodeR == queryR) {
+            return tree[treeIndex].value;
+        }
+
+        int mid = nodeL + (nodeR - nodeL) / 2;
+
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = leftTreeIndex + 1;
+
+        if (queryL >= mid + 1) {
+            return query(rightTreeIndex, queryL, queryR);
+        } else if (queryR <= mid) {
+            return query(leftTreeIndex, queryL, queryR);
+        } else { // 待查询区间横跨两个子节点的区间
+            E leftResult = query(leftTreeIndex, queryL, mid);
+            E rightResult = query(rightTreeIndex, mid + 1, queryR);
+            return merger.merge(leftResult, rightResult);
+        }
+    }
+
     private void rangeCheck(int index) {
         if (index >= size()) {
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private void rangeCheckForQuery(int l, int r) {
+        if (l < 0 || r >= size() || r < 0 || r >= size() || l > r) {
+            throw new IllegalArgumentException("Index range is illegal.");
         }
     }
 
