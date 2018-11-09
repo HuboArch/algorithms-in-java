@@ -11,21 +11,24 @@ public class SelectionSort {
      *
      * @param arr 数组
      */
+    @SuppressWarnings("unchecked")
     public static void sort(Comparable[] arr) {
         int len = arr.length;
 
         for (int i = 0; i < len; i++) {
-            int minIdx = i;
 
+            // 寻找[i, n)区间内最小值的索引
+            int minIdx = i;
+            Comparable curItem = arr[minIdx];
             for (int j = i + 1; j < len; j++) {
-                if (arr[j].compareTo(arr[minIdx]) < 0) {
+                if (arr[j].compareTo(curItem) < 0) {
                     minIdx = j;
                 }
             }
-
             if (minIdx != i) {
                 swap(arr, i, minIdx);
             }
+
         }
     }
 
