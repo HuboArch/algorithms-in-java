@@ -1,4 +1,4 @@
-package algorithm.sorting.selection_sort;
+package algorithm.sorting.insertion_sort;
 
 /**
  * Created by lyn
