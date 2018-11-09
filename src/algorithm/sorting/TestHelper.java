@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
  *
  * @author dean
  */
+@SuppressWarnings("unchecked")
 public class TestHelper {
 
     /* 不允许产生实例对象 */
@@ -46,8 +47,8 @@ public class TestHelper {
      * @param arr 数组
      */
     public static void printArray(Object[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
+        for (Object anArr : arr) {
+            System.out.print(anArr);
             System.out.print(" ");
         }
     }
@@ -58,7 +59,7 @@ public class TestHelper {
      * @param arr 数组
      * @return boolean
      */
-    public static boolean isSorted(Comparable[] arr) {
+    private static boolean isSorted(Comparable[] arr) {
         for (int i = 0; i < arr.length - 2; i++) {
             if (arr[i].compareTo(arr[i + 1]) > 0) {
                 return false;
