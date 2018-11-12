@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 /**
  * 测试排序算法的实用方法
  *
- * @author dean
+ * @author lyn
  */
 @SuppressWarnings("unchecked")
 public class TestHelper {
