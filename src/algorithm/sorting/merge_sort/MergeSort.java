@@ -35,7 +35,7 @@ public class MergeSort {
     /**
      * 归并arr[l, mid]和arr[mid+1, r]
      */
-    private static void merge(Comparable[] arr, int l, int mid, int r) {
+    public static void merge(Comparable[] arr, int l, int mid, int r) {
 
         // 开辟一个辅助空间
         Comparable[] aux = Arrays.copyOfRange(arr, l, r + 1);
