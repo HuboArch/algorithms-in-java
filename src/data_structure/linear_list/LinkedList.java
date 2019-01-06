@@ -384,7 +384,7 @@ public class LinkedList<E> implements List<E> {
         } else {
             Node<E> x = last;
             for (int i = size - 1; i > index; i--) {
-                x = x.next;
+                x = x.prev;
             }
             return x;
         }

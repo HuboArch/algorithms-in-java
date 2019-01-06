@@ -47,9 +47,11 @@ public class MergeSort {
         for (int k = l; k <= r; k++) {
 
             if (i > mid) {              // aux的左半部分[l-l, mid-l]元素已被全部遍历
-                arr[k] = arr[j - l];
+                arr[k] = aux[j - l];
+                j++;
             } else if (j > r) {         // aux的右半部分[mid+1-l, r-l]元素已被全部遍历
-                arr[k] = arr[i - l];
+                arr[k] = aux[i - l];
+                i++;
             } else if (aux[i - l].compareTo(aux[j - l]) < 0) {  // i所跟踪的元素小于j跟踪的元素
                 arr[k] = aux[i - l];
                 i++;
