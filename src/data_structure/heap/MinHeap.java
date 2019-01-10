@@ -35,6 +35,26 @@ public class MinHeap<E> {
         this(DEFAULT_INITIAL_CAPACITY, null);
     }
 
+    // heapify
+    @SuppressWarnings("unchecked")
+    public MinHeap(E[] arr) {
+        int l = arr.length;
+
+        this.elements = new Object[l];
+        this.size = l;
+        this.comparator = null;
+
+        System.arraycopy(arr, 0, this.elements, 0, l);
+
+        // 从最后一个非叶子节点开始，向前依次对数组中的元素进行自顶向下的堆化操作
+        // 时间复杂度: O(n)
+        int nonLeaf = (size - 1) / 2;
+        for (int i = nonLeaf; i >= 0; i--) {
+            E element = (E) elements[i];
+            siftDown(i, element);
+        }
+    }
+
     private void grow() {
         final Object[] newElementData = new Object[elements.length * 2];
         System.arraycopy(elements, 0, newElementData, 0, elements.length);
