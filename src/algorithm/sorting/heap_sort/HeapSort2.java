@@ -6,7 +6,7 @@ import data_structure.heap.MinHeap;
  * @author Hubo
  * Project: algorithms-in-java
  * Time: 2019/1/10 10:50
- * Email: hkissbigapple@163.com
+ * Email: hubolinux@163.com
  */
 public class HeapSort2 {
 

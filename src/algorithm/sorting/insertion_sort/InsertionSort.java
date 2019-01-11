@@ -1,7 +1,10 @@
 package algorithm.sorting.insertion_sort;
 
 /**
- * Created by lyn
+ * @author Hubo
+ * Project: algorithms-in-java
+ * Time: 2019/1/10 9:35
+ * Email: hubolinux@163.com
  */
 public class InsertionSort {
     /**

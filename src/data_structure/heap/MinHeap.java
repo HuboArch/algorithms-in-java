@@ -6,7 +6,7 @@ import java.util.Comparator;
  * @author Hubo
  * Project: algorithms-in-java
  * Time: 2019/1/9 14:47
- * Email: hkissbigapple@163.com
+ * Email: hubolinux@163.com
  */
 public class MinHeap<E> {
 
